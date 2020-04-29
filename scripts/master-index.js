@@ -1,3 +1,4 @@
+/*
 // A very basic web server in node.js
 // Stolen from: Node.js for Front-End Developers by Garann Means (p. 9-10)require('dotenv').load();
 require('dotenv').config();
@@ -91,3 +92,5 @@ function getFile(localPath, res, mimeType) {
 		}
 	});
 }
+
+*/
