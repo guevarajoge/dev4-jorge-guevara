@@ -30,6 +30,7 @@ $(function () {
 
     function callLater(data) {
         $('#results').text(data.items[0]["genre-v2"]);
+        console.log(data.items[0]);
 
     }
 
