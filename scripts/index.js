@@ -29,8 +29,9 @@ $(function () {
 
 
     function callLater(data) {
-        $('#results').text(data.items[0]["genre-v2"]);
+        $('#results').text(data.items[0]["genre-v2"]).addClass('Highlight');
         console.log(data.items[0]);
+
 
     }
 

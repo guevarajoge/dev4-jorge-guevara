@@ -4,16 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <h1>Titel</h1>
-    <div id="results">dummy</div>
+
+    <div class='container' style="text-align: center">
+        <h5>Podium Aan Huis</h3><br>
+            <h1>Haal voorstellingen naar je huiskamer</h1>
+            <p>Bekijk gratis opnames van straffe podiumvoorstellingen voor jong en oud. Elke dag komen er nieuwe bij.
+                Via Podium Aan Huis bundelen gezelschappen, kunst- en cultuurhuizen virtueel de krachten om jou te
+                blijven ontroeren en ontspannen. Door de coronacrisis is de magie van de live beleving even
+                onbereikbaar. Geen nood, want als de zalen moeten sluiten, dan komt de voorstelling gewoon naar je toe.
+                Veel kijkplezier!</p><br>
+            <div id="externalEnquete" class="alert alert-danger" role="alert">Momenteel onderzoeken we of Podium Aan
+                Huis een toekomst heeft eens de
+                coronamaatregelen zijn
+                afgelopen. Zag je al een voorstelling? Deel jouw mening en vul deze <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfU7hyzMG3I8w7zFWIZO-VgBfl-dTa1FW0oqUZT4OPU377WPg/viewform">bevraging</a>
+                in (max. 5 min).</div>
+            <br><br>
+            <h2>Zoek</h2>
+            <div class="input-group mb-3">
+                <input id='search' type="text" class="form-control">
+            </div>
+            <div id="content">
+                <!--dummy card -->
+                <div class="card text-white bg-dark mb-3">
+                    <div class="card-header">Guevara's</div>
+                    <img src="https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"
+                        class="rounded mx-auto d-block" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Dark card title</h5>
+                        <p class="card-text">This is a dummy card.
+                            Some quick example text to build on the card title and make up the bulk of the card's
+                            content.
+                        </p>
+                        <a href="#" class="btn btn-primary">DUMMY </a>
+                    </div>
+                </div>
+            </div>
+
+            <h1>Titel</h1>
+            <div id="results">dummy</div>
+
+    </div>
+
+
+    <!-- //google  -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+    <!-- Optional JavaScript for bootstrap -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
 
     <!-- fall back in case of having problems with the CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="/scripts/jquery-3.5.1.min.js"><\/script>')
     </script>
