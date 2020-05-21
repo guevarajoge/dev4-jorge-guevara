@@ -25,12 +25,41 @@ $(function () {
     }).done(function (data) {
         console.log(data);
         callLater(data);
+    }).fail(function (err1, err2) {
+        //Print the error logs
+        console.log('Fail');
+        console.log(err1);
+        console.log(err2);
     });
 
 
     function callLater(data) {
-        $('#results').text(data.items[0]["genre-v2"]).addClass('Highlight');
-        console.log(data.items[0]);
+        $('#content').empty();
+        const list = data.items;
+        console.log(list);
+
+
+
+        list.map(card => {
+
+            // Card
+            let div = $(`<div class = ' card text-white bg-dark mb-3' >`); 
+
+            let img = card['link-to-video'].metadata.thumbnail_url;
+            let thumbnail = $('<img class=\'toSeasons rounded mx-auto d-block\' src=' + img + ' >');
+            let genre = $('<p>').text(card['genre-v2']);
+            let name = $('<p>').text(card.name);
+            let excerpt = $('<p>').text(card.excerpt);
+            let recordedAt = $('<p>').text(card["recorded-at"]);
+
+            let videoLength = $('<p>').text(card['video-length']);
+
+
+            
+            div.append(thumbnail).append(genre).append(name).append(excerpt).append(recordedAt).append(videoLength);
+            $('#content').append(div);
+
+        });
 
 
     }
