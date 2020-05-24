@@ -1,21 +1,3 @@
-//testing modules
-// import {Car} from './modules/carClass.js'; 
-// import {sayHi} from './modules/fUnction.js';
-// import literal from './modules/oBject.js';
-// import aRra from './modules/aRray.js';
-
-
-
-// import config from '../config.js'; // json exported as module 
-// console.log('test the state of the repo');
-
-// let items = config.items;
-// items.forEach(e=>console.log(`genre: ${e.genre} & category: ${e.category}`));
-
-// // });
-// console.log(config.items);
-
-//transversing the folder hierarchy for the url seams to be with ./ == up one level  instead of ../ 
 $(function () {
     $.ajax({
 
@@ -24,7 +6,8 @@ $(function () {
         dataType: 'json',
     }).done(function (data) {
         console.log(data);
-        callLater(data);
+
+        fetchingData(data); //
     }).fail(function (err1, err2) {
         //Print the error logs
         console.log('Fail');
@@ -33,52 +16,59 @@ $(function () {
     });
 
 
-    function callLater(data) {
+    function fetchingData(data) {
         $('#content').empty();
         const list = data.items;
-        console.log(list);
-
-        // let reducer = function (acumulador, array) {
-        //     return acumulador.concat(array);
-        // };
-        // let arrayOnedimension =list.reduce(reducer,[]);
-        // console.log(arrayOnedimension); 
-
-        // const array1 = [1, 2, 3, 4];
-        const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        
-        // 1 + 2 + 3 + 4
-        const reducedResults = list.reduce(reducer,6);
-        console.log('reducedResults');
-        console.log(reducedResults);
-        
-        // // 5 + 1 + 2 + 3 + 4
-        // console.log(array1.reduce(reducer, 5));
-        // // expected output: 15
-            list.map(card => {
-
-                // Card
-                let div = $(`<div class = ' card text-white bg-dark mb-3' >`);
-
-                let img = card['link-to-video'].metadata.thumbnail_url;
-                let thumbnail = $('<img class=\'toSeasons rounded mx-auto d-block\' src=' + img + ' >');
-                let genre = $('<p>').text(card['genre-v2']);
-                let name = $('<p>').text(card.name);
-                let excerpt = $('<p>').text(card.excerpt);
-                let recordedAt = $('<p>').text(card["recorded-at"]);
-
-                let videoLength = $('<p>').text(card['video-length']);
+        // console.log(list);
+        const initialList = createCards(list); // Initial state 
+        //Categoy lists
+        const emptyList = {};
+        const volWassenList = list.filter(cards => cards.category == "volwassenen");
+        const familieList = list.filter(cards => cards.category == "familie");
+        //Genre 
+        const heaterList = list.filter(cards => cards['genre-v2'] == 'theater');
+        const dansList = list.filter(cards => cards['genre-v2'] == 'dans');
+        const muziekList = list.filter(cards => cards['genre-v2'] == 'muziektheater');
+        const multiList = list.filter(cards => cards['genre-v2'] == 'multidisciplinair');
+        const liteList = list.filter(cards => cards['genre-v2'] == 'literatuur');
+        const comedyList = list.filter(cards => cards['genre-v2'] == 'comedy');
+        const figurenList = list.filter(cards => cards['genre-v2'] == 'figurentheater');
+        const operaList = list.filter(cards => cards['genre-v2'] == 'opera');
+        const concertList = list.filter(cards => cards['genre-v2'] == 'concert');
+        const circusList = list.filter(cards => cards['genre-v2'] == 'circus');
+        // console.log(concertList);
 
 
 
-                div.append(thumbnail).append(genre).append(name).append(excerpt).append(recordedAt).append(videoLength);
-                $('#content').append(div);
-
-            });
-
+        $('#btnConcert').on("click", function () {
+            console.log('fired');
+            $('#content').empty();
+            createCards(concertList);
+        });
 
     }
 
 
+
+
+
+
+    let createCards = cards => {
+        return cards.map(card => {
+            // Card
+            let div = $(`<div class = 'card text-white bg-dark mb-3' style='float:rig'>`);
+            let img = card['link-to-video'].metadata.thumbnail_url;
+            let thumbnail = $('<img class=\'toSeasons rounded mx-auto d-block\' src=' + img + ' >');
+            let genre = $('<p>').text(card['genre-v2']);
+            let name = $('<p>').text(card.name);
+            let excerpt = $('<p>').text(card.excerpt);
+            let recordedAt = $('<p>').text(card["recorded-at"]);
+            let videoLength = $('<p>').text(card['video-length']);
+
+            div.append(thumbnail).append(genre).append(name).append(excerpt).append(recordedAt).append(videoLength);
+            $('#content').append(div);
+
+        });
+    };
 
 });
