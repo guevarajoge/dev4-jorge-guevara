@@ -1,3 +1,4 @@
+"use strict";
 $(function () {
     $.ajax({
 
@@ -17,7 +18,7 @@ $(function () {
 
 
     function fetchingData(data) {
-        $('#content').empty();
+        $('.content').empty();
         const list = data.items;
         console.log(list);
 
@@ -53,83 +54,90 @@ $(function () {
             circusList
         ];
         // const mamaReady = mamalList.map(element => element);
-        // console.log('mamalList');
-        // console.log(mamalList);
+        console.log('mamalList');
+        console.log(mamalList);
         // createCards(circusList);
 
 
 
-        $('#btnVolwassenen').on("click", function () {
+        $('#btnVolwassenen').click(function () {
             console.log(volWassenList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(volWassenList);
         });
         $('#btnFamilie').on("click", function () {
             console.log(familieList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(familieList);
         });
         $('#btnTheater').on("click", function () {
             console.log(theaterList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(theaterList);
         });
         $('#btnDans').on("click", function () {
             console.log(dansList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(dansList);
         });
         $('#btnMuziekThe').on("click", function () {
             console.log(muziekList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(muziekList);
         });
         $('#btnMulti').on("click", function () {
             console.log(multiList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(multiList);
         });
         $('#btnLiteratuur').on("click", function () {
             console.log(liteList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(liteList);
         });
         $('#btnComedy').on("click", function () {
             console.log(comedyList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(comedyList);
         });
         $('#btnFiguren').on("click", function () {
             console.log(figurenList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(figurenList);
         });
         $('#btnOpera').on("click", function () {
             console.log(operaList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(operaList);
         });
         $('#btnConcert').on("click", function () {
             console.log(concertList);
-            $('#content').empty();
+            $('.content').empty();
             createCards(concertList);
         });
         $('#btnCircus').on("click", function () {
             console.log(circusList);
-            $('#content').empty();
+            $('.content').empty();
+            initialState();
             createCards(circusList);
         });
+
+
+
+        // createCards(list);
     }
 
+    const initialState = function () {
+        $('.content').append(`<h3 >FILTERS WISSEN</h3 >`);
+    };
 
 
 
 
-
-    let createCards = cards => {
+    const createCards = cards => {
         return cards.map(card => {
             // Card
-            let div = $(`<div class = 'card text-white bg-dark mb-3' style='float:rig'>`);
+            let div = $(`<div class = 'card text-white bg-dark mb-3'>`);
             let img = card.thumbnail.url;
             let thumbnail = $(`<img class='toSeasons rounded mx-auto d-block 'src='${img}' >`);
             let genre = $('<p>').text(card['genre-v2']);
@@ -139,7 +147,7 @@ $(function () {
             let videoLength = $('<p>').text(card['video-length']);
 
             div.append(thumbnail).append(genre).append(name).append(excerpt).append(recordedAt).append(videoLength);
-            $('#content').append(div);
+            $('.content').append(div);
         });
     };
 
