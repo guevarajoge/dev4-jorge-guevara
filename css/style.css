@@ -21,8 +21,15 @@ h2 {
     font-weight: 800;
     font-size: 20px;
 }
-
-
+.card {
+    width: 30%;
+    height: 40vh;
+    display: inline-block;
+    margin: 0 1% 20px;
+    background-color: #F80B62;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
 
 .Highlight {
     background-color: Yellow;

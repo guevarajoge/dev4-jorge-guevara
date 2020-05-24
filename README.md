@@ -1,6 +1,13 @@
 # dev4-jorge-guevara
-taak for dev4 - functional programing
-1. Fetch the JSON file
-2. Github time  
-3. Analise - client Vs Coder - check think on the STATE of the page b4 and after …. 
-	
+I started mapping and creating the card to append. 
+
+I fetched all the arrays and put them together in one array. My idea was using this "mamaList" as an initial content(allcards). 
+
+From there, using Spread sintax, I was planing to destructure this mamaList based on clicks.
+
+I got stuck around 16hrs of sunday 25/5, got in panic and start making buttons to append the results... 
+
+The current website shows the individual results of each filter.
+
+-------
+
