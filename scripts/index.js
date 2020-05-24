@@ -8,7 +8,6 @@ $(function () {
         dataType: 'json',
     }).done(function (data) {
         console.log(data);
-        initialState(data.items);
         fetchingData(data); //
     }).fail(function (err1, err2) {
         //Print the error logs - ERROR 
@@ -18,12 +17,6 @@ $(function () {
     });
 
 
-    const initialState = function (allCards) {
-        // console.log('allCards');
-        // console.log(allCards);
-        // createInitialCards(allCards);
-    };
-
     // function erase (allCards) {
     //     let clickToErase = $('.content').append(`<h3  style= 'text-decoration: underline' >FILTERS WISSEN</h3 >`);
     //     clickToErase.click(function () {
@@ -32,8 +25,6 @@ $(function () {
     // }
 
     function fetchingData(data) {
-
-
         const list = data.items;
         // console.log(list);
         const erase = () => createInitialCards(list); // erase filter - back to initial state
@@ -68,33 +59,28 @@ $(function () {
             concertList, //10
             circusList //11
         ];
-
-
-
         // const mamaListSpread = {
         //     ...mamalList,
         //     calories:200
-
         // };
-
 
         console.log('mamaList');
         console.log(mamaList[11]);
         // const mamaReady = mamalList.map(element => element);
 
-        // 
+        createCards(list); // initial state 
 
         $('#btnVolwassenen').click(function () {
             console.log(volWassenList);
             $('.content').empty();
             $(this).toggleClass('Highlight');
+            createCards(volWassenList);
         });
         $('#btnFamilie').on("click", function () {
             console.log(familieList);
             $('.content').empty();
             $(this).toggleClass('Highlight');
             createCards(familieList);
-            $(this).toggleClass('Highlight');
 
         });
         $('#btnTheater').on("click", function () {
@@ -157,7 +143,7 @@ $(function () {
             createCards(circusList);
             $(this).toggleClass('Highlight');
         });
-        createCards(list);
+        
     }
 
 
